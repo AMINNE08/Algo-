@@ -1,0 +1,33 @@
+Algorithm AnalyzeSentence
+
+    var
+        length_counter: integer := 0;
+        word_counter: integer := 0;
+        vowel_counter: integer := 0;
+        i: integer;
+        char: char;
+        sentence: string;
+
+    sentence := "This is an example sentence."
+    for i := 1 to Length(sentence) do
+    begin
+        char := sentence[i];
+        length_counter := length_counter + 1;
+        
+        if (char in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']) then
+            vowel_counter := vowel_counter + 1;
+
+        if (char = ' ') then
+            word_counter := word_counter + 1;
+    end;
+
+    // Adjust for the last word and the period
+    word_counter := word_counter + 1;  // Last word is not followed by a space
+    length_counter := length_counter - 1;  // Exclude the period
+
+    
+    WriteLn('Length: ', length_counter);
+    WriteLn('Words: ', word_counter);
+    WriteLn('Vowels: ', vowel_counter);
+
+EndAlgorithm;
